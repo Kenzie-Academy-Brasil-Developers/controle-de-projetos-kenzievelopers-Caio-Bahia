@@ -9,7 +9,7 @@ userRouter.use("/:id", middlewares.verifyUserIdParams)
 
 userRouter.get("/:id", userControllers.retrieveDev)
 userRouter.delete("/:id", userControllers.destroyDev)
-userRouter.patch("/:id", middlewares.uniqueEmail)
+userRouter.patch("/:id", middlewares.uniqueEmail, userControllers.updateDev)
 userRouter.post("/:id/infos")
 
 export default userRouter

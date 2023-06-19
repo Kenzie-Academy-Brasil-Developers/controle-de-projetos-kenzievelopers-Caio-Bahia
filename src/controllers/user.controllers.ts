@@ -16,5 +16,9 @@ const destroyDev = async (req: Request, res: Response): Promise<Response> => {
   await userServices.destroy(req.params.id)
   return res.status(204).json()
 }
+const updateDev = async (req: Request, res: Response): Promise<Response> => {
+  const user: User = await userServices.update(req.body, req.params.id)
+  return res.status(200).json(user)
+}
 
-export default { createDev, retrieveDev, destroyDev }
+export default { createDev, retrieveDev, destroyDev, updateDev }
