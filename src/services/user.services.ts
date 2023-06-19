@@ -3,7 +3,6 @@ import { client } from "../database"
 import { User, UserResult, Usercreate } from "../interfaces"
 
 const create = async (payload: Usercreate): Promise<User> => {
-  //   console.log(payload)
   const queryFormat: string = format(
     'INSERT INTO "developers" (%I) VALUES (%L) RETURNING *;',
     Object.keys(payload),
@@ -14,4 +13,12 @@ const create = async (payload: Usercreate): Promise<User> => {
   return query.rows[0]
 }
 
-export default { create }
+const retrireve = async (userId: string): Promise<User> => {
+  const query: UserResult = await client.query('SELECT * FROM "developers" WHERE "id"=$1', [userId])
+  return query.rows[0]
+}
+const destroy = async (userId: string): Promise<void> => {
+  await client.query('DELETE FROM "developers" WHERE "id"=$1', [userId])
+}
+
+export default { create, retrireve, destroy }

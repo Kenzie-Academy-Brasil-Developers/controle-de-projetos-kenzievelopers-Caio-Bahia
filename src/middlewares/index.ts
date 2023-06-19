@@ -1,3 +1,4 @@
 import uniqueEmail from "./uniqueEmail.middleware"
+import verifyUserIdParams from "./verifyUserIdParams.middleware"
 
-export default { uniqueEmail }
+export default { uniqueEmail, verifyUserIdParams }
