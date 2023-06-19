@@ -3,18 +3,13 @@ import { NextFunction, Request, Response } from "express"
 import { UserResult } from "../interfaces"
 import { client } from "../database"
 
-const verifyUserIdBody = async (
+const verifyProjectIdParams = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const { developerId } = req.body
-
-  if (!developerId) {
-    return next()
-  }
-  const query: UserResult = await client.query('SELECT * FROM "developers" WHERE "id"=$1', [
-    developerId
+  const query: UserResult = await client.query('SELECT * FROM "projects" WHERE "id"=$1', [
+    req.params.id
   ])
 
   if (query.rowCount === 0) {
@@ -24,4 +19,4 @@ const verifyUserIdBody = async (
   return next()
 }
 
-export default verifyUserIdBody
+export default verifyProjectIdParams

@@ -10,7 +10,7 @@ const createDev = async (req: Request, res: Response): Promise<Response> => {
 
 const retrieveDev = async (req: Request, res: Response): Promise<Response> => {
   const user: User = await userServices.retrireve(req.params.id)
-  return res.status(201).json(user)
+  return res.status(200).json(user)
 }
 const destroyDev = async (req: Request, res: Response): Promise<Response> => {
   await userServices.destroy(req.params.id)
