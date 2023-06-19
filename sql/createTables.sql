@@ -11,7 +11,7 @@ create table if not exists "developerInfo"(
 "developerSince" DATE not null,
 "preferredOS" "OS" not null,
 "developerId" INTEGER not null unique,
-foreign key ("developerID")
+foreign key ("developerId")
 	references "developers"("id")
 		on delete cascade	
 );
@@ -24,7 +24,7 @@ create table if not exists "projects"(
 "startDate" DATE not null,
 "endDate" DATE,
 "developerId" INTEGER not null unique,
-foreign key ("developerID")
+foreign key ("developerId")
 	references "developers"("id")
 		on delete set null 
 );

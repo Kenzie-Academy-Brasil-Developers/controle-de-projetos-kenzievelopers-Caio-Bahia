@@ -4,7 +4,7 @@ interface devInfo {
   id: number
   developerSince: Date
   preferredOS: string
-  developerID: number
+  developerId: number
 }
 
 type devInfocreate = Omit<devInfo, "id">

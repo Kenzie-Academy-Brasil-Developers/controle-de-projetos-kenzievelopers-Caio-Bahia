@@ -8,7 +8,7 @@ const verifyDevInfoExists = async (
   next: NextFunction
 ): Promise<Response | void> => {
   const query: devInfoResult = await client.query(
-    'SELECT * FROM "developerInfo" WHERE "developerID" = $1;',
+    'SELECT * FROM "developerInfo" WHERE "developerId" = $1;',
     [req.params.id]
   )
   if (query.rowCount != 0) {

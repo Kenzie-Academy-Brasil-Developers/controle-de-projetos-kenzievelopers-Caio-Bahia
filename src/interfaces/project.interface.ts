@@ -8,7 +8,7 @@ interface Project {
   repository: string
   startDate: Date
   endDate: Date
-  developerID: number | null | undefined
+  developerId: number | null | undefined
 }
 
 type projectCreate = Omit<Project, "id">
