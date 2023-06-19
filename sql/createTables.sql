@@ -4,7 +4,7 @@ create table if not exists "developers"(
 "email" VARCHAR(50) not null unique
 );
 
-create type "OS" as enum ('Windows','Linux','MacOS');
+CREATE TYPE "OS" AS ENUM ('Windows', 'Linux', 'MacOS');
 
 create table if not exists "developerInfo"(
 "id" SERIAL primary key,
